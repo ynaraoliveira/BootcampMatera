@@ -7,16 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AppStartupRunner implements ApplicationRunner {
 	
-	Printer printer;
+	Transferencia transferencia;
 	
-	public AppStartupRunner(Printer printer) {
-		this.printer = printer;
+	public AppStartupRunner(Transferencia transferencia) {
+		this.transferencia = transferencia;
 	}
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		printer.print();
+		transferencia.transferir();
 		
 	}
 

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -49,10 +50,14 @@ public class Cliente {
 	
 	@Column(length = 8, nullable = false)
 	private String cep;
+	
+	@OneToOne(mappedBy = "cliente")
+	private Conta conta;
+	
+	public Cliente() {}
 
 	public Cliente(Long id, String nome, String cpf, Long telefone, BigDecimal rendaMensal, String logradouro,
 			Integer numero, String complemento, String bairro, String cidade, String estado, String cep) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -65,10 +70,6 @@ public class Cliente {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.cep = cep;
-	}
-	
-	public Cliente() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {

@@ -26,6 +26,21 @@ public class AppStartupRunner implements ApplicationRunner {
 				"Rua dos Ipes", 43, "Casa", "Jardim Florido", "Hortolândia", "MG", "04512356");
 		clienteRepository.save(cliente);
 		
+		Cliente cliente2 = clienteRepository.findByCpf("1245678901").orElse(null);
+		System.out.println("Cliente 2: " + cliente2);
+		
+		Cliente cliente3 = clienteRepository.buscaPorCpf("1245678901").orElse(null);
+		System.out.println("Cliente 3: " + cliente3);
+		
+		Cliente cliente4 = clienteRepository.buscaPorCpfENome("1245678901", "Ana").orElse(null);
+		System.out.println("Cliente 4: " + cliente4);
+		
+		Cliente cliente5 = clienteRepository.buscaPorCpfNativeQuery("1245678901").orElse(null);
+		System.out.println("Cliente 5: " + cliente5);
+		
+		Cliente cliente6 = clienteRepository.findByCpfAndNome("1245678901", "Ana").orElse(null);
+		System.out.println("Cliente 6: " + cliente6);
+		
 	}
 	
 }

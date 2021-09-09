@@ -167,6 +167,13 @@ public class Cliente {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", rendaMensal="
+				+ rendaMensal + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento
+				+ ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep + ", conta="
+				+ conta + "]";
+	}
 
 }

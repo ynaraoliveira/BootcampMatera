@@ -22,8 +22,8 @@ public class AppStartupRunner implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		
 //		Cria registro no banco de dados
-		Cliente cliente = new Cliente(null, "Ana", "1245678901", 98764253L, new BigDecimal(1000), 
-				"Rua dos Ipes", 43, "Casa", "Jardim Florido", "Hortolândia", "MG", "04512356");
+		Cliente cliente = new Cliente("Ana", "1245678901", 98764253L, new BigDecimal(1000), 
+				"Rua dos Ipes", 43, "Casa", "Jardim Florido", "Hortolândia", "MG", "04512356", null);
 		clienteRepository.save(cliente);
 		
 		Cliente cliente2 = clienteRepository.findByCpf("1245678901").orElse(null);

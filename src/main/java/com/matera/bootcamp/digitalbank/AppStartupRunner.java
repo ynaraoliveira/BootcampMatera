@@ -8,14 +8,17 @@ import org.springframework.stereotype.Component;
 
 import com.matera.bootcamp.digitalbank.entity.Cliente;
 import com.matera.bootcamp.digitalbank.repository.ClienteRepository;
+import com.matera.bootcamp.digitalbank.service.ClienteService;
 
 @Component
 public class AppStartupRunner implements ApplicationRunner {
 	
 	ClienteRepository clienteRepository;
+	ClienteService clienteService;
 	
-	public AppStartupRunner(ClienteRepository clienteRepository) {
+	public AppStartupRunner(ClienteRepository clienteRepository, ClienteService clienteService) {
 		this.clienteRepository = clienteRepository;
+		this.clienteService = clienteService;
 	}
 	
 	@Override
@@ -40,6 +43,8 @@ public class AppStartupRunner implements ApplicationRunner {
 		
 		Cliente cliente6 = clienteRepository.findByCpfAndNome("1245678901", "Ana").orElse(null);
 		System.out.println("Cliente 6: " + cliente6);
+		
+		clienteService.print();
 		
 	}
 	

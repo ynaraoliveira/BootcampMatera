@@ -17,7 +17,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "conta")
 @Entity
 @Table(name = "db_cliente")
 public class Cliente extends EntidadeBase {
